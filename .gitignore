@@ -1,26 +1,37 @@
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Folders
-_obj
-_test
+# compiled output
+/dist
+/tmp
 
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
+# dependencies
+/node_modules
+/bower_components
 
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
+# IDEs and editors
+/.idea
+/.vscode
+.project
+.classpath
+*.launch
+.settings/
 
-_testmain.go
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
 
-*.exe
-*.test
-*.prof
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db
 
 .DS_Store
+
