@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+let marked = require('marked');
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  private content: string;
+
+  constructor(
+    private http: Http
+  ) { }
 
   ngOnInit() {
+    this.content = marked('## Usage');
+    this.http.get("app/blogs/blog/rr.md").subscribe(
+      response => {this.content = marked(response.text())},
+      error => {console.warn(error)}
+    );
   }
 
 }

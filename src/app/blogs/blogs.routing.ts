@@ -2,9 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BlogsComponent } from './blogs.component';
+import { ListComponent } from './list/list.component';
+import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
-  { path: 'blogs', component: BlogsComponent },
+  {
+      path: 'blogs', 
+      component: BlogsComponent,
+      children: [
+          { path: '', component: ListComponent },
+          { path: 'blog', component: BlogComponent }
+      ]
+  },
 ];
 
 @NgModule({
