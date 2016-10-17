@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+let marked = require('marked');
 
 @Component({
   selector: 'app-blogs',
@@ -10,6 +11,7 @@ export class BlogsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(marked('I am using __markdown__.'));
   }
 
 }
