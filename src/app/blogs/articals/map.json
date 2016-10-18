@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0",
+    "author": "herbie huo",
+    "base_url": "app/blogs/articals/",
+    "subcategory": [
+        {
+            "category_name": "frontend",
+            "directory": "frontend",
+            "articals": [
+                {
+                    "name": "angular2-develop-tools.md",
+                    "relative_url": "",
+                    "hash": "",
+                    "create_time": "",
+                    "update_time": ""
+                }
+            ]
+        }
+    ],
+    "articals": []
+}
