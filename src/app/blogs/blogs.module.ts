@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 import { BlogsComponent } from './blogs.component';
 
 import { BlogsRoutingModule } from './blogs.routing';
@@ -11,7 +12,8 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     HttpModule,
-    BlogsRoutingModule
+    BlogsRoutingModule,
+    MaterialModule.forRoot(),
   ],
   declarations: [BlogsComponent, BlogComponent, ListComponent]
 })
