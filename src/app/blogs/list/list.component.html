@@ -1,3 +1,19 @@
-<p>
+<!--<p>
   list works!
-</p>
+</p>-->
+<div>
+  <div>
+    <md-list>
+      <md-list-item *ngFor="let artical of articals">
+        <p md-line>
+          <a [routerLink]="['/blogs/blog/'+artical.name]">{{artical.name}}</a>
+        </p>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>
+<!--<div>
+  <footer>
+    <span>author: {{blogsMap.author}}</span>
+  </footer>
+</div>-->
