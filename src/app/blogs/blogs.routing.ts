@@ -11,7 +11,7 @@ const routes: Routes = [
       component: BlogsComponent,
       children: [
           { path: '', component: ListComponent },
-          { path: 'blog', component: BlogComponent }
+          { path: 'blog/:category/:artical_name', component: BlogComponent }
       ]
   },
 ];

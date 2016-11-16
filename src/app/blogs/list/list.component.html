@@ -2,7 +2,7 @@
   list works!
 </p>-->
 <div>
-  <div>
+  <!--<div>
     <md-list>
       <md-list-item *ngFor="let artical of articals">
         <p md-line>
@@ -10,6 +10,24 @@
         </p>
       </md-list-item>
     </md-list>
+  </div>-->
+  <div>
+    <div *ngFor="let category of blogsMap.categorys">
+      <md-card>
+        <md-card-title>{{category.category_name}}</md-card-title>
+        <md-card-content>
+          <div>
+            <md-list>
+              <md-list-item *ngFor="let artical of category.articals">
+                <p md-line>
+                  <a [routerLink]="['/blogs/blog', category.category_name, artical.name, {'prefix_uri':blogsMap.base_url, 'relative_uri':artical.relative_url, 'md5': artical.md5, 'create_time': artical.create_time, 'update_time': artical.update_time}]">{{artical.name}}</a>
+                </p>
+              </md-list-item>
+            </md-list>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
   </div>
 </div>
 <!--<div>

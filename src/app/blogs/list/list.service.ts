@@ -21,6 +21,7 @@ export class ArticalInfo {
   name: string;
   relative_url: string;
   hash: string;
+  md5: string;
   create_time: string;
   update_time: string;
 }

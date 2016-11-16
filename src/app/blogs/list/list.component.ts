@@ -5,7 +5,7 @@ import { ListService, BlogsMap, ArticalInfo } from './list.service';
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  providers: [ListService]
+  providers: [ ListService ]
 })
 export class ListComponent implements OnInit {
 
