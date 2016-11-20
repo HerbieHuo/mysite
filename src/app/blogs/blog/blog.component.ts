@@ -37,7 +37,7 @@ export class BlogComponent implements OnInit {
             this.prefixUri = p["prefix_uri"] || "articals/";
             this.category = p['category'];
             this.relativeUri = p["relative_uri"] || this.category+"/";
-            this.name = p["artical_name"];
+            this.name = p["artical_name"].replace('_0_', '.');
             this.md5 = p["md5"];
             this.getContent();
         }

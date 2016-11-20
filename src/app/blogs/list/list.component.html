@@ -20,7 +20,7 @@
             <md-list>
               <md-list-item *ngFor="let artical of category.articals">
                 <p md-line>
-                  <a [routerLink]="['/blogs/blog', category.category_name, artical.name, {'prefix_uri':blogsMap.base_url, 'relative_uri':artical.relative_url, 'md5': artical.md5, 'create_time': artical.create_time, 'update_time': artical.update_time}]">{{artical.name}}</a>
+                  <a [routerLink]="['/blogs/blog', category.category_name, artical.name.replace('.','_0_'), {'prefix_uri':blogsMap.base_url, 'relative_uri':artical.relative_url, 'md5': artical.md5, 'create_time': artical.create_time, 'update_time': artical.update_time}]">{{artical.name}}</a>
                 </p>
               </md-list-item>
             </md-list>
