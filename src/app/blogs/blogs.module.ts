@@ -7,6 +7,7 @@ import { BlogsComponent } from './blogs.component';
 import { BlogsRoutingModule } from './blogs.routing';
 import { BlogComponent } from './blog/blog.component';
 import { ListComponent } from './list/list.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ListComponent } from './list/list.component';
     BlogsRoutingModule,
     MaterialModule.forRoot(),
   ],
-  declarations: [BlogsComponent, BlogComponent, ListComponent]
+  declarations: [BlogsComponent, BlogComponent, ListComponent, EditBlogComponent]
 })
 export class BlogsModule { }

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { ConfigService } from './shared';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
@@ -21,7 +23,9 @@ import { BlogsModule } from './blogs/blogs.module';
     AppRoutingModule,
     BlogsModule,
   ],
-  providers: [],
+  providers: [
+    ConfigService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

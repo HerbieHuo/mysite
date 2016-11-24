@@ -1,6 +1,12 @@
 <div>
   <md-card class="artial-card">
-    <md-card-title>artials</md-card-title>
+    <md-card-subtitle>
+      <span>类别：{{category}}</span>
+      <span>创建日期：{{createTime}}</span>
+      <span>修改日期：{{updateTime}}</span>
+      <span>校验值：{{md5}}</span>
+    </md-card-subtitle>
+    <!--<md-card-title>artials</md-card-title>-->
     <md-card-content>
       <div class="artical_content">
         <div [innerHTML]="content"></div>
