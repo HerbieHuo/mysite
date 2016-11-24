@@ -1,3 +1,22 @@
 <p>
   edit-blog works!
 </p>
+<div>
+  <div style="display:inline-block;">
+    <md-input placeholder="Title" ></md-input>
+  </div>
+  <div style="display:inline-block;">
+    <select name="blog-type" id="blog-type">
+      <option value="ss">SS</option>
+    </select>
+  </div>
+</div>
+<div>
+  <div style="display:inline-block;">
+    <textarea name="blog-content" id="blog-content" cols="45%" rows="10" [(ngModel)]="blogContent"></textarea>
+  </div>
+  <div style="display:inline-block;">
+    <!--<p>{{blogContent | blog:'markdown-to-html'}}</p>-->
+    <div innerHTML="{{blogContent | blog:'markdown-to-html'}}"></div>
+  </div>
+</div>
