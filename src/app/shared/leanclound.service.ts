@@ -7,11 +7,6 @@ import { ConfigService } from './config.service';
 @Injectable()
 export class LeancloundService {
 
-  private leancloundConfig = {
-    AppID: "",
-    AppKey: ""
-  }
-
   constructor(
     private http: Http,
     private configService: ConfigService,
@@ -25,8 +20,8 @@ export class LeancloundService {
     
     let options = new Headers({
       'Content-Type': 'application/json',
-      "X-LC-Id": this.leancloundConfig.AppID,
-      "X-LC-Key": this.leancloundConfig.AppKey,
+      "X-LC-Id": this.configService.leancloundConfig.AppID,
+      "X-LC-Key": this.configService.leancloundConfig.AppKey,
     });
     return options;
   }
