@@ -3,16 +3,19 @@
 </p>
 <div>
   <div style="display:inline-block;">
-    <md-input placeholder="Title" ></md-input>
+    <md-input placeholder="Title" [(ngModel)]="articalTitle"></md-input>
   </div>
   <div style="display:inline-block;">
     <select name="blog-type" id="blog-type">
       <option value="ss">SS</option>
     </select>
   </div>
+  <div style="display:inline-block;">
+    <button md-raised-button color="primary" (click)="onSaveArtical()">Save</button>
+  </div>
 </div>
 <div>
-  <div style="display:inline-block;">
+  <div style="float:left;width:48%">
     <textarea name="blog-content" id="blog-content" cols="45%" rows="10" [(ngModel)]="blogContent"></textarea>
   </div>
   <div style="display:inline-block;">

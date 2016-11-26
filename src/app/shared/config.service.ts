@@ -5,11 +5,4 @@ export class ConfigService {
 
   constructor() { }
 
-  public getLeanCloundConfig(): {} {
-    return {
-      AddID: "",
-      AppKey: ""
-    }
-  }
-
 }

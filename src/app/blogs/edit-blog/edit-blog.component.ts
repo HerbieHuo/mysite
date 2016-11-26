@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { BlogPipe } from '../blog.pipe';
+import { LeancloundService } from '../../shared';
 
 @Component({
   selector: 'app-edit-blog',
@@ -9,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
 export class EditBlogComponent implements OnInit {
 
   private blogContent: string;
+  private articalTitle: string;
+  private category: string;
 
-  constructor() { }
+  constructor(
+    private leancloundService: LeancloundService
+  ) { }
 
   ngOnInit() {
+  }
+
+  private onSaveArtical(): void {
+    let artical = {
+      name: this.articalTitle,
+      content: this.blogContent,
+      category: this.category || "test",
+    }
+    this.leancloundService.createObject(artical).subscribe(
+      data => { console.log(data) },
+      error => { console.log(error) }
+    );
   }
 
 }
