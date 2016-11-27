@@ -22,6 +22,8 @@ export class BlogComponent implements OnInit {
   private createTime: string;
   private updateTime: string;
   private md5: string;
+  private objectId: string;
+  private artical: {} = {};
 
   constructor(
     private http: Http,
@@ -31,17 +33,13 @@ export class BlogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.artical['contentType'] = "markdown";
     this.route.params.subscribe(
         p => {
             console.info('ExperimentSampleComponent', p);
-            this.prefixUri = p["prefix_uri"] || "articals/";
-            this.category = p['category'];
-            this.relativeUri = p["relative_uri"] || this.category+"/";
-            this.name = p["artical_name"].replace('_0_', '.');
-            this.md5 = p["md5"];
-            this.createTime = p["create_time"];
-            this.updateTime = p["update_time"];
-            this.getContent();
+            this.objectId = p["objectId"];
+            this.getArtical();
+            // this.getContent();
         }
     );
     // this.content = marked('## Usage');
@@ -57,6 +55,20 @@ export class BlogComponent implements OnInit {
       data => { this.content = marked(data) },
       error => { console.log(error) },
     )
+  }
+
+  private getArtical(): void {
+    if (!this.objectId) {
+      this.content = "### 无法获取文章";
+      this.artical['content'] = "### 无法获取文章";
+      return;
+    }
+    this.artical['content'] = `### 文章获取中，请稍等 ......`;
+    this.content = `### 文章获取中，请稍等 ......`;
+    this.blogService.getArtical(this.objectId).subscribe(
+      data => { console.log(data); this.artical=data },
+      error => { console.log(error) }
+    );
   }
 
 }

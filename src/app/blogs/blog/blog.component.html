@@ -9,7 +9,7 @@
     <!--<md-card-title>artials</md-card-title>-->
     <md-card-content>
       <div class="artical_content">
-        <div [innerHTML]="content"></div>
+        <div [innerHTML]="artical.content | blog:artical.contentType"></div>
       </div>
     </md-card-content>
   </md-card>

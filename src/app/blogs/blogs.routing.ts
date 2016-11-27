@@ -12,7 +12,7 @@ const routes: Routes = [
       component: BlogsComponent,
       children: [
           { path: '', component: ListComponent },
-          { path: 'blog/:category/:artical_name', component: BlogComponent },
+          { path: 'blog/:objectId', component: BlogComponent },
           { path: 'edit-blog', component: EditBlogComponent }
       ]
   },

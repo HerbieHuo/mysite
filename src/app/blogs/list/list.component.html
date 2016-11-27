@@ -39,7 +39,9 @@
 <div>
   <div *ngFor="let artical of articals" class="flex">
     <md-card class="card">
-      <md-card-title>{{artical.name}}</md-card-title>
+      <md-card-title>
+        <a [routerLink]="['/blogs/blog', artical.objectId]">{{artical.name}}</a>
+      </md-card-title>
       <md-card-content>
         <!--<div class="content">{{artical.content}}</div>-->
         <div class="content" [innerHTML]="artical.content | blog:artical.contentType"></div>
