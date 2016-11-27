@@ -1,13 +1,23 @@
-<p>
+<!--<p>
   edit-blog works!
-</p>
+</p>-->
 <div>
   <div style="display:inline-block;">
     <md-input placeholder="Title" [(ngModel)]="articalTitle"></md-input>
   </div>
   <div style="display:inline-block;">
-    <select name="blog-type" id="blog-type">
-      <option value="ss">SS</option>
+    <select name="blog-type" id="blog-type" [(ngModel)]="category">
+      <option value="frontend">frontend</option>
+      <option value="python">python</option>
+      <option value="golang">golang</option>
+      <option value="C\C++">C\C++</option>
+    </select>
+  </div>
+  <div style="display:inline-block;">
+    <select name="content-type" id="content-type" [(ngModel)]="contentType">
+      <option value="html" selected>html</option>
+      <option value="markdown">markdown</option>
+      <option value="text">text</option> 
     </select>
   </div>
   <div style="display:inline-block;">
@@ -15,11 +25,12 @@
   </div>
 </div>
 <div>
-  <div style="float:left;width:48%">
-    <textarea name="blog-content" id="blog-content" cols="45%" rows="10" [(ngModel)]="blogContent"></textarea>
+  <div>
+    <textarea name="blog-content" id="blog-content" cols="98%" rows="10" [(ngModel)]="blogContent"></textarea>
   </div>
-  <div style="display:inline-block;">
+  <div>
     <!--<p>{{blogContent | blog:'markdown-to-html'}}</p>-->
-    <div innerHTML="{{blogContent | blog:'markdown-to-html'}}"></div>
+    <div innerHTML="{{blogContent}}"></div>
+    <!--<div innerHTML="{{blogContent | blog:'markdown-to-html'}}"></div>-->
   </div>
 </div>

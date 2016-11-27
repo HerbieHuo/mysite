@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 let marked = require('marked');
+// let highlight = require("highlight.js");
+let showdown  = require('showdown')
+let converter = new showdown.Converter()
 
 @Pipe({
   name: 'blog'
@@ -19,7 +22,13 @@ export class BlogPipe implements PipeTransform {
 
   private markdownToHtml(value: any): string {
     if (!value) return "NA";
-    return marked(value);
+    // marked.setOptions({
+    //   highlight: function (code) {
+    //     return require("highlight.js").highlightAuto(code).value;
+    //   }
+    // });
+    // return marked(value);
+    return converter.makeHtml(value);
   }
 
 }

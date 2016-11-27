@@ -11,6 +11,7 @@ export class EditBlogComponent implements OnInit {
   private blogContent: string;
   private articalTitle: string;
   private category: string;
+  private contentType: string;
 
   constructor(
     private leancloundService: LeancloundService
