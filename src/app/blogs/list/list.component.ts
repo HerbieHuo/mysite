@@ -10,14 +10,16 @@ import { ListService, BlogsMap, ArticalInfo } from './list.service';
 export class ListComponent implements OnInit {
 
   private blogsMap: BlogsMap = new BlogsMap;
-  private articals: ArticalInfo[] = [];
+  // private articals: ArticalInfo[] = [];
+  private articals: Object[] = [];
 
   constructor(
     private listService: ListService,
   ) { }
 
   ngOnInit() {
-    this.getCatalogue();
+    // this.getCatalogue();
+    this.getArticals();
   }
 
   private getCatalogue(): void {
@@ -33,10 +35,17 @@ export class ListComponent implements OnInit {
 
   private assembleAllArticals(): void {
     if (!this.blogsMap.categorys) return;
-    this.articals = [];
-    for (let category of this.blogsMap.categorys) {
-      this.articals = this.articals.concat(category.articals);
-    }
+    // this.articals = [];
+    // for (let category of this.blogsMap.categorys) {
+    //   this.articals = this.articals.concat(category.articals);
+    // }
+  }
+
+  private getArticals(): void {
+    this.listService.getArticals().subscribe(
+      data => { console.log(data); this.articals = data.results || [] },
+      error => { console.log(error) }
+    )
   }
 
 }

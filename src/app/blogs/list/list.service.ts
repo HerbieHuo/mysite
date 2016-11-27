@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
+import { LeancloundService } from '../../shared';
 
 export class BlogsMap {
   version: string;
@@ -30,7 +31,8 @@ export class ArticalInfo {
 export class ListService {
 
   constructor(
-    private http: Http
+    private http: Http,
+    private leancloundService: LeancloundService,
   ) { }
 
   public getBlogsMap(): Observable<BlogsMap> {
@@ -41,6 +43,10 @@ export class ListService {
     ).catch(
       error => { return Observable.throw(error.status) }
     )
+  }
+
+  public getArticals(): Observable<any> {
+    return this.leancloundService.getArticals();
   }
 
 }

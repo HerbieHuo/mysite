@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { LeancloundService } from '../../shared';
 
 @Component({
@@ -11,20 +12,25 @@ export class EditBlogComponent implements OnInit {
   private blogContent: string;
   private articalTitle: string;
   private category: string;
-  private contentType: string;
+  private contentType: string = "markdown";
 
   constructor(
-    private leancloundService: LeancloundService
+    private leancloundService: LeancloundService,
+    private domSanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
   }
 
   private onSaveArtical(): void {
+    if (!this.category || !this.contentType || !this.articalTitle || !this.blogContent) {
+      return;
+    }
     let artical = {
       name: this.articalTitle,
       content: this.blogContent,
-      category: this.category || "test",
+      category: this.category,
+      contentType: this.contentType,
     }
     this.leancloundService.createObject(artical).subscribe(
       data => { console.log(data) },

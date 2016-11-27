@@ -1,7 +1,7 @@
 <!--<p>
   list works!
 </p>-->
-<div>
+<!--<div>-->
   <!--<div>
     <md-list>
       <md-list-item *ngFor="let artical of articals">
@@ -11,7 +11,7 @@
       </md-list-item>
     </md-list>
   </div>-->
-  <div>
+  <!--<div>
     <div *ngFor="let category of blogsMap.categorys" class="flex">
       <md-card style="background:#90CAF9">
         <md-card-title>{{category.category_name}}</md-card-title>
@@ -29,9 +29,21 @@
       </md-card>
     </div>
   </div>
-</div>
+</div>-->
 <!--<div>
   <footer>
     <span>author: {{blogsMap.author}}</span>
   </footer>
 </div>-->
+
+<div>
+  <div *ngFor="let artical of articals" class="flex">
+    <md-card class="card">
+      <md-card-title>{{artical.name}}</md-card-title>
+      <md-card-content>
+        <!--<div class="content">{{artical.content}}</div>-->
+        <div class="content" [innerHTML]="artical.content | blog:artical.contentType"></div>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

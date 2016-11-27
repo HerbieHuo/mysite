@@ -51,4 +51,11 @@ export class LeancloundService {
     ).catch( this.handleError );
   }
 
+  public getArticals(): Observable<any> {
+    let options = new RequestOptions({headers: this._headers()});
+    return this.http.get(this._url("classes/articals"), options).map(
+      response => { return response.json() || {} }
+    ).catch( this.handleError );
+  }
+
 }
