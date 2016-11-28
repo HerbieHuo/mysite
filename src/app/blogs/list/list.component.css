@@ -24,3 +24,14 @@
   overflow: hidden;
   height: 6em;
 }
+
+.float-button {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 99;
+}
+
+a {
+  text-decoration: none;
+}

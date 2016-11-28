@@ -13,7 +13,7 @@ import { BlogsModule } from './blogs/blogs.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

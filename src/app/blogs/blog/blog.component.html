@@ -1,12 +1,15 @@
 <div>
   <md-card class="artial-card">
     <md-card-subtitle>
-      <span>类别：{{category}}</span>
-      <span>创建日期：{{createTime}}</span>
-      <span>修改日期：{{updateTime}}</span>
-      <span>校验值：{{md5}}</span>
+      <span>类别：{{artical.category}}</span>
+      <span>创建日期：{{artical.createdAt}}</span>
+      <span>修改日期：{{artical.updatedAt}}</span>
+      <!--<span>校验值：{{md5}}</span>-->
+      <span>
+        <a [routerLink]="['/blogs/edit-blog', {'objectId':artical.objectId}]">EDIT</a>
+      </span>
     </md-card-subtitle>
-    <!--<md-card-title>artials</md-card-title>-->
+    <md-card-title>{{artical.name}}</md-card-title>
     <md-card-content>
       <div class="artical_content">
         <div [innerHTML]="artical.content | blog:artical.contentType"></div>
