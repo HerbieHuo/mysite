@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
 import { BlogsModule } from './blogs/blogs.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

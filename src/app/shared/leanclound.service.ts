@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { ConfigService } from './config.service';
 
+let MD5 = require("blueimp-md5");
+
 @Injectable()
 export class LeancloundService {
 
@@ -17,12 +19,17 @@ export class LeancloundService {
   }
 
   private _headers(): Headers {
-    
+    let sessionToken = localStorage.getItem("sessionToken") || undefined;
+    let currentTimestamp = new Date().getTime();
+    let sign = MD5(currentTimestamp+this.configService.leancloundConfig.AppKey);
     let options = new Headers({
       'Content-Type': 'application/json',
       "X-LC-Id": this.configService.leancloundConfig.AppID,
-      "X-LC-Key": this.configService.leancloundConfig.AppKey,
+      "X-LC-Sign": sign+","+currentTimestamp,
     });
+    if (!!sessionToken) {
+      options.append("X-LC-Session", sessionToken);
+    }
     return options;
   }
 
@@ -71,6 +78,23 @@ export class LeancloundService {
     let options = new RequestOptions({headers: headers});
     return this.http.put(this._url("classes/articals/"+objectId), body, options).map(
       response => { return response.json() || {} }
+    ).catch( this.handleError );
+  }
+
+  public login(data: {}): Observable<any> {
+    let body = JSON.stringify(data);
+    let headers = this._headers();
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this._url("login"), body, options).map(
+      response => { return response.json() || {} }
+    ).catch( this.handleError );
+  }
+
+  public getMe(): Observable<any> {
+    if (!localStorage.getItem("sessionToken")) return Observable.throw("not login");
+    let options = new RequestOptions({headers: this._headers()});
+    return this.http.get(this._url("users/me"), options).map(
+      response => response.json() || {}
     ).catch( this.handleError );
   }
 

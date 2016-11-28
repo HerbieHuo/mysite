@@ -1,0 +1,20 @@
+<div class="login-container">
+  <md-card style="width:20em">
+    <md-card-title>Login</md-card-title>
+    <md-card-content>
+      <div>
+        <!--<form action="post">-->
+          <div>
+            <md-input placeholder="username" style="width:100%" [(ngModel)]="username"></md-input>
+          </div>
+          <div>
+            <md-input placeholder="password" style="width:100%" [(ngModel)]="password"></md-input>
+          </div>
+          <div>
+            <button md-raised-button (click)="onLogin()">login</button>
+          </div>
+        <!--</form>-->
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

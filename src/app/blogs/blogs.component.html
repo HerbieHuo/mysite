@@ -1,6 +1,10 @@
 <div>
   <md-toolbar color="primary">
-    <span>BLOG</span>
+    <span>
+      <a [routerLink]="['/blogs']">BLOG</a>
+    </span>
+    <span class="fill-remaining-space"></span>
+    <span>{{user.username}}</span>
   </md-toolbar>
 </div>
 <div style="background:#F5F5F5">

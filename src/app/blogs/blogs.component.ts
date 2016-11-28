@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// let marked = require('marked');
+import { LeancloundService } from '../shared';
 
 @Component({
   selector: 'app-blogs',
@@ -8,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogsComponent implements OnInit {
 
-  constructor() { }
+  private user: {} = {};
+
+  constructor(
+    private leancloundService: LeancloundService
+  ) { }
 
   ngOnInit() {
-    // console.log(marked('I am using __markdown__.'));
+    this.getMe();
+  }
+
+  private getMe(): void {
+    if (!localStorage.getItem("sessionToken")) return;
+    this.leancloundService.getMe().subscribe(
+      data => { console.log(data); this.user = data },
+      error => { console.log(error) }
+    )
   }
 
 }

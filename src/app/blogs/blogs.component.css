@@ -1,0 +1,8 @@
+a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
